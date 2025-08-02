@@ -27,11 +27,11 @@ const Dashboard = () => {
         };
 
         const [userResponse, productCountResponse, productsResponse, orderCountResponse, recentOrdersResponse] = await Promise.all([
-          axios.get('http://localhost:5000/api/auth/user-count', config),
-          axios.get('http://localhost:5000/api/products/product-count', config),
-          axios.get('http://localhost:5000/api/products?sort=-createdAt&limit=4', config),
-          axios.get('http://localhost:5000/api/orders/order-count', config),
-          axios.get('http://localhost:5000/api/orders/recent-orders', config),
+          axios.get('https://abinexis-backend.onrender.com/api/auth/user-count', config),
+          axios.get('https://abinexis-backend.onrender.com/api/products/product-count', config),
+          axios.get('https://abinexis-backend.onrender.com/api/products?sort=-createdAt&limit=4', config),
+          axios.get('https://abinexis-backend.onrender.com/api/orders/order-count', config),
+          axios.get('https://abinexis-backend.onrender.com/api/orders/recent-orders', config),
         ]);
 
         setStats({

@@ -125,7 +125,7 @@ const OrderManagement = () => {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const endpoint = isAdmin ? 'http://localhost:5000/api/orders/admin' : 'http://localhost:5000/api/orders';
+        const endpoint = isAdmin ? 'https://abinexis-backend.onrender.com/api/orders/admin' : 'https://abinexis-backend.onrender.com/api/orders';
         const response = await axios.get(endpoint, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -214,7 +214,7 @@ const OrderManagement = () => {
 
   const updateOrderStatus = useCallback(async (orderId, newStatus) => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/orders/${orderId}`, 
+      const response = await axios.put(`https://abinexis-backend.onrender.com/api/orders/${orderId}`, 
         { 
           orderStatus: newStatus,
           isPaid: newStatus === 'delivered' ? true : undefined 
@@ -257,7 +257,7 @@ const OrderManagement = () => {
 
   const openOrderModal = useCallback(async (orderId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/orders/${orderId}`, {
+      const response = await axios.get(`https://abinexis-backend.onrender.com/api/orders/${orderId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

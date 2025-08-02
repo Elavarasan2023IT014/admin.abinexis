@@ -37,7 +37,7 @@ const ProductManagement = () => {
           return;
         }
 
-        const productResponse = await axios.get('http://localhost:5000/api/products', {
+        const productResponse = await axios.get('https://abinexis-backend.onrender.com/api/products', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setIsAdmin(true);
@@ -262,7 +262,7 @@ const ProductManagement = () => {
 
       if (editingProduct) {
         const response = await axios.put(
-          `http://localhost:5000/api/products/${editingProduct._id}`,
+          `https://abinexis-backend.onrender.com/api/products/${editingProduct._id}`,
           formData,
           {
             headers: {
@@ -275,7 +275,7 @@ const ProductManagement = () => {
           prev.map((p) => (p._id === editingProduct._id ? response.data : p))
         );
       } else {
-        const response = await axios.post('http://localhost:5000/api/products', formData, {
+        const response = await axios.post('https://abinexis-backend.onrender.com/api/products', formData, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
@@ -300,7 +300,7 @@ const ProductManagement = () => {
     }
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`https://abinexis-backend.onrender.com/api/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts((prev) => prev.filter((p) => p._id !== productId));
